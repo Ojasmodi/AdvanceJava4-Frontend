@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark text-white text-capitalize sticky-top mat-elevation-z8">
+    <a class="navbar-brand">
+      <img src="./../../../assets/emp.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      {{title}}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link">Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/add'>Add Employee</a>
+        </li>
+      </ul>
+      <span class="nav justify-content-end my-2 my-lg-0">
+        <button class="btn btn-outline-info my-2 my-sm-0 text-capitalize" (click)="logout()">Logout({{userName}})</button>
+      </span>
+    </div>
+  </nav>
+  <br>
+  <div class="container">
+    <div
+      style='background-color: rgb(21, 17, 75);padding:5px;color: rgb(248, 245, 245);height: 7%;width:100%;font-size: 1.5rem'
+      class="mat-elevation-z8 text-responsive"><b><u>Employees List-</u>-</b>
+    </div>
+    <br>
+    
+    <table class="table table-striped text-capitalize" *ngIf="allEmployee">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Employee Code</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of allEmployee">
+            <th scope="row">{{employee.empCode}}</th>
+            <td>{{employee.empName}}</td>
+            <td>{{employee.empLocation}}</td>
+            <td style="text-transform: lowercase;">{{employee.empEmail}}</td>
+            <td>{{employee.empDOB|date}}</td>
+            <td> <button class="btn btn-info btn-sm" (click)="editEmployee(employee.empCode)" >Edit</button></td>
+          </tr>      
+        </tbody>
+      </table>
+  </div>
+  <!-- <ngx-spinner></ngx-spinner> -->

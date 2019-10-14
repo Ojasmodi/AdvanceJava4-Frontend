@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark text-white text-capitalize sticky-top mat-elevation-z8">
+    <a class="navbar-brand">
+        <img src="./../../../assets/emp.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        {{title}}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item ">
+                <a class="nav-link" routerLink='/dashboard'>Dashboard </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link">Add Employee </a>
+            </li>
+        </ul>
+        <span class="nav justify-content-end my-2 my-lg-0">
+            <button class="btn btn-outline-info my-2 my-sm-0 text-capitalize"
+                (click)="logout()">Logout({{userName}})</button>
+        </span>
+    </div>
+</nav>
+<br>
+<div class="container">
+        <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 m-2 p-4 border border-dark" style="margin-left:40%;">
+            <h2 class="form-signin-heading">Upload Employee details here...</h2>
+            <br>
+            <span>Employee Name: </span>
+            <label for="inputFirstName" class="sr-only">Employee Name: </label>
+            <input type="text" class="form-control" [(ngModel)]="empName" placeholder="Employee name" required autofocus>
+            <small class="form-text text-muted">*required.</small>
+            <br>
+            <span>Location: </span>
+            <label for="inputLastName" class="sr-only">Location</label>
+            <input type="text"  class="form-control" [(ngModel)]="empLocation" placeholder="Location"
+                required>
+            <small  class="form-text text-muted">*required.</small>
+            <br>
+            <span>Email: </span>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" class="form-control" [(ngModel)]="empEmail" placeholder="Email address"
+                >
+            <small id="emailHelp" class="form-text text-muted">*Enter valid email. We'll never share your email with
+                anyone
+                else.</small>
+            <br>
+            <span>Date of Birth </span>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="date" class="form-control" [(ngModel)]="empDOB" placeholder="DOB" >
+            <small class="form-text text-muted">*required </small>
+            <br>
+            <button class="btn btn-lg btn-info btn-block" (click)="addEmployee()">Add Employee</button>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <!-- <ngx-spinner></ngx-spinner> -->
